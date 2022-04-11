@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import numpy as np
+import sklearn
 
 with open('final_pipe.pkl', 'rb') as model_best:
     model = pickle.load(model_best)
