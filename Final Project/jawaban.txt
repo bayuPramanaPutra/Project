@@ -1,0 +1,46 @@
+metode
+
+framework deployment:
+platform (alternatif: rasa, gugle bot engine, ibm watson)
+hanya memberi fitur2 tambahan: /start, /help, /rules
+
+bot ada 3 karakteristik: 
+domain, (open domain: tema bebas. close domain: tema khusus)
+user input, (rule based, NLP based yg mendekati AI)
+bot output, (retrieval based: jawbaan sama untuk tiap konteks, 
+generative based: jawaban bisa berbeda2 tergantung inputnya, biasanya untuk open domain.
+jauh lebih sulit. harus mengerti konteks, menyusun grammar, 'more human'
+butuh jumlah data yg sangaat besar.)
+
+meski akurasi 100%, tapi ini hanya untuk data train saja.
+
+preprocessing
+kenapa pake stemming?
+sastrawi.
+
+kenapa gak pake ngram?
+karena tanpa ngram sudah bagus. simple is better.
+input dan konteks masih terbatas.
+epoch 20 aja udah dapet akurasi 100%.
+khawatir jika pakr ngram, khawatir overfitting.
+
+kenapa pake NER?
+agar lebih mudah mengelompokkan konteks yg dimaksud user.
+jadi klo misalnya ada banyak lowongan, lebih mudah aja untuk dimodelkan.
+kenapa LSTM?
+rnn bersifat sequential, output akan digunakan sbg input berikutnya.
+jika terlalu panjang, khawatirnya bot akan melupakan konteks utama.
+
+alternatif: GRU
+lebih cepat ditraining.
+sequence pendek dgn performa yg sangat baik.
+
+karena dataset kecil, kedua model tsb sebenernya sama2 aja dr segi akurasi dan 
+waktu proses.
+
+pengembangan:
+
+prodigy: 
+hanya perlu melakukan anotasi sedikit saja berdasarkan kata-kata yg di-link
+sehingga tidak perlu cape2 nguli nambahin dataset, menjadikannya 'membengkak'
+upload dataset di local host. lebih aman dari leakaged data.
